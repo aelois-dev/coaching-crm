@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Coach dashboard</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/crm.css">
+</head>
+<body class="crm">
+<a class="crm-skip" href="#crm-list">Skip to leads</a>
+
+<div id="crm-demo" class="crm-demo" hidden>Demo mode: nothing is saved to the real sheet. Try codes demo1 or demo2.</div>
+
+<!-- Sign in -->
+<main id="crm-login" class="crm-login" hidden>
+  <form id="crm-login-form" class="crm-card crm-login-card" novalidate>
+    <h1>Coach sign-in</h1>
+    <p class="crm-muted">Enter your personal coach code.</p>
+    <label for="crm-code">Coach code</label>
+    <input id="crm-code" name="code" type="password" autocomplete="current-password" autocapitalize="off" spellcheck="false" required>
+    <p id="crm-login-error" class="crm-error" role="alert" hidden></p>
+    <button type="submit" class="crm-btn crm-primary" id="crm-login-btn">Sign in</button>
+  </form>
+</main>
+
+<!-- App -->
+<div id="crm-app" hidden>
+  <header class="crm-header">
+    <div class="crm-header-row">
+      <h1>Leads</h1>
+      <div class="crm-who"><span id="crm-coach"></span>
+        <button type="button" class="crm-btn crm-ghost" id="crm-signout">Sign out</button></div>
+    </div>
+    <div class="crm-counts" aria-live="polite">
+      <span class="crm-count"><b id="crm-n-unclaimed">0</b> Unclaimed</span>
+      <span class="crm-count crm-count-warn"><b id="crm-n-overdue">0</b> Overdue</span>
+    </div>
+  </header>
+
+  <div class="crm-layout">
+    <section class="crm-listcol" aria-label="Lead list">
+      <div class="crm-toolbar">
+        <div class="crm-tabs" role="tablist" aria-label="Lead filter">
+          <button role="tab" type="button" data-tab="unclaimed" aria-selected="true">Unclaimed</button>
+          <button role="tab" type="button" data-tab="mine" aria-selected="false">Mine</button>
+          <button role="tab" type="button" data-tab="all" aria-selected="false">All</button>
+        </div>
+        <label class="crm-sr" for="crm-search">Search leads</label>
+        <input id="crm-search" type="search" placeholder="Search name, phone, area" autocomplete="off">
+        <button type="button" class="crm-btn crm-secondary" id="crm-add">Add lead manually</button>
+      </div>
+      <p id="crm-status" class="crm-muted" role="status"></p>
+      <ul id="crm-list" class="crm-list"></ul>
+    </section>
+
+    <aside id="crm-detail" class="crm-detail" role="dialog" aria-modal="false" aria-labelledby="crm-detail-title" hidden tabindex="-1"></aside>
+  </div>
+</div>
+
+<div id="crm-toast" class="crm-toast" role="status" aria-live="polite"></div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/crm.js"></script>
+</body>
+</html>
