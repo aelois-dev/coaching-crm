@@ -7,46 +7,63 @@
 <meta name="description" content="Tell us your running goal and a coach will WhatsApp you.">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/landing.css">
-<meta name="theme-color" content="#0b1f17">
+<meta name="theme-color" content="#071a12">
 </head>
 <body class="landing">
 <div id="demoBanner" class="demo-banner hidden">Demo mode: enquiries stay in this browser only.</div>
 <header class="lp-hero">
-  <div class="lp-wrap">
+  <svg class="lp-lines" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <g fill="none" stroke-linecap="round">
+      <path d="M-40 640 C 300 560, 560 380, 1240 120" stroke="#ff6a1a" stroke-opacity=".55" stroke-width="2"/>
+      <path d="M-40 690 C 320 610, 600 440, 1240 190" stroke="#fff" stroke-opacity=".14" stroke-width="2"/>
+      <path d="M-40 740 C 340 660, 640 500, 1240 260" stroke="#fff" stroke-opacity=".10" stroke-width="2"/>
+      <path d="M-40 790 C 360 710, 680 560, 1240 330" stroke="#fff" stroke-opacity=".07" stroke-width="2"/>
+      <path d="M-40 590 C 280 510, 520 320, 1240 50" stroke="#fff" stroke-opacity=".10" stroke-width="2"/>
+    </g>
+  </svg>
+  <div class="lp-wrap lp-hero-in">
     <div class="lp-brand hidden" id="brandName"></div>
-    <h1>Run further and faster with a coach beside you</h1>
+    <ul class="lp-pills" aria-label="At a glance">
+      <li><span class="dot" aria-hidden="true"></span>Singapore</li>
+      <li>1-to-1 coaching</li>
+      <li>Replies on WhatsApp</li>
+    </ul>
+    <h1>Run further and faster with a <em>coach</em> beside you</h1>
     <p class="lp-pitch" id="tagline">Friendly running coaching in Singapore.</p>
     <ul class="lp-ticks">
       <li>Plans that fit your level, schedule and goal</li>
       <li>A real coach replies on WhatsApp</li>
       <li>Try one session first. No long-term commitment</li>
     </ul>
-    <a class="lp-cta" href="#formCard" id="heroCta">Talk to a coach
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <p class="lp-note">Takes about a minute. No payment needed.</p>
+    <div class="lp-cta-row">
+      <a class="lp-cta" href="#formCard" id="heroCta"><span>Talk to a coach</span><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="lp-note">Takes about a minute. No payment needed.</p>
+    </div>
   </div>
 </header>
 
 <section class="lp-section" aria-labelledby="howTitle">
   <div class="lp-wrap">
-    <h2 id="howTitle">How it works</h2>
+    <p class="lp-eyebrow rv">Simple start</p>
+    <h2 id="howTitle" class="rv">How it works</h2>
     <ol class="lp-steps">
-      <li><span class="lp-num" aria-hidden="true">1</span><div><h3>Send your enquiry</h3><p>Tell us your goal and WhatsApp number. It takes about a minute.</p></div></li>
-      <li><span class="lp-num" aria-hidden="true">2</span><div><h3>A coach WhatsApps you</h3><p>A real person messages you to chat about your goal, explain how the first session works and what it costs, and find a time.</p></div></li>
-      <li><span class="lp-num" aria-hidden="true">3</span><div><h3>Start your first session</h3><p>Meet your coach, lace up and get moving.</p></div></li>
+      <li class="rv"><span class="lp-num" aria-hidden="true">1</span><div><h3>Send your enquiry</h3><p>Tell us your goal and WhatsApp number. It takes about a minute.</p></div></li>
+      <li class="rv"><span class="lp-num" aria-hidden="true">2</span><div><h3>A coach WhatsApps you</h3><p>A real person messages you to chat about your goal, explain how the first session works and what it costs, and find a time.</p></div></li>
+      <li class="rv"><span class="lp-num" aria-hidden="true">3</span><div><h3>Start your first session</h3><p>Meet your coach, lace up and get moving.</p></div></li>
     </ol>
   </div>
 </section>
 
 <section class="lp-section lp-alt" aria-labelledby="firstTitle">
   <div class="lp-wrap">
-    <h2 id="firstTitle">What your first session includes</h2>
+    <p class="lp-eyebrow rv">Session one</p>
+    <h2 id="firstTitle" class="rv">What your first session includes</h2>
     <ul class="lp-first">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>A chat about your goals and your running so far</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>A look at how you run, so your coach knows where to start</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Simple tips to help you run more comfortably</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>An outline of how your training could look</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Your questions answered, with no pressure to keep going</li>
+      <li class="rv"><span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></g></svg></span><span>A chat about your goals and your running so far</span></li>
+      <li class="rv"><span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/></g></svg></span><span>A look at how you run, so your coach knows where to start</span></li>
+      <li class="rv"><span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></g></svg></span><span>Simple tips to help you run more comfortably</span></li>
+      <li class="rv"><span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></g></svg></span><span>An outline of how your training could look</span></li>
+      <li class="rv"><span class="lp-ic"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17h.01"/></g></svg></span><span>Your questions answered, with no pressure to keep going</span></li>
     </ul>
   </div>
 </section>
@@ -60,18 +77,20 @@
 
 <main class="lp-wrap lp-main" id="enquire">
   <section class="card" id="formCard" aria-labelledby="formTitle">
+    <p class="lp-eyebrow">Your enquiry</p>
     <h2 id="formTitle">Tell us about your running</h2>
-    <p class="muted">Tell us a little about you. Fields marked * are needed.</p>
+    <p class="muted lp-formsub">Tell us a little about you. Fields marked <span class="req" aria-hidden="true">*</span> are needed.</p>
     <div id="formError" class="msg error hidden" role="alert" tabindex="-1"></div>
     <form id="enquiry" novalidate>
+      <div class="fgroup"><span class="fnum" aria-hidden="true">1</span><h3>About you</h3></div>
       <div class="field">
-        <label for="name">Your name *</label>
-        <input type="text" id="name" name="name" autocomplete="name" maxlength="100" aria-describedby="name-err">
+        <label for="name">Your name <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="name" aria-required="true" name="name" autocomplete="name" maxlength="100" aria-describedby="name-err">
         <div class="err" id="name-err">Please tell us your name.</div>
       </div>
       <div class="field">
-        <label for="phone">WhatsApp number *</label>
-        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g. 9123 4567" aria-describedby="phone-hint phone-err">
+        <label for="phone">WhatsApp number <span class="req" aria-hidden="true">*</span></label>
+        <input type="tel" id="phone" aria-required="true" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g. 9123 4567" aria-describedby="phone-hint phone-err">
         <p class="hint" id="phone-hint">We will message you on this number.</p>
         <div class="err" id="phone-err">Please enter a phone number with at least 8 digits.</div>
       </div>
@@ -82,14 +101,15 @@
           <div class="err" id="email-err">That email does not look right. You can also leave it empty.</div>
         </div>
         <div class="field">
-          <label for="age">Age *</label>
-          <input type="number" id="age" name="age" inputmode="numeric" min="5" max="100" aria-describedby="age-err">
+          <label for="age">Age <span class="req" aria-hidden="true">*</span></label>
+          <input type="number" id="age" aria-required="true" name="age" inputmode="numeric" min="5" max="100" aria-describedby="age-err">
           <div class="err" id="age-err">Please enter an age between 5 and 100.</div>
         </div>
       </div>
+      <div class="fgroup"><span class="fnum" aria-hidden="true">2</span><h3>Your running</h3></div>
       <div class="field">
-        <label for="goal">Your goal *</label>
-        <select id="goal" name="goal" aria-describedby="goal-err">
+        <label for="goal">Your goal <span class="req" aria-hidden="true">*</span></label>
+        <select id="goal" aria-required="true" name="goal" aria-describedby="goal-err">
           <option value="">Choose one...</option>
           <option>5K</option><option>10K</option><option>Half marathon</option><option>Marathon</option>
           <option>General fitness</option><option>Other</option>
@@ -97,8 +117,8 @@
         <div class="err" id="goal-err">Please choose a goal.</div>
       </div>
       <div class="field">
-        <label for="level">Your running level now *</label>
-        <select id="level" name="level" aria-describedby="level-err">
+        <label for="level">Your running level now <span class="req" aria-hidden="true">*</span></label>
+        <select id="level" aria-required="true" name="level" aria-describedby="level-err">
           <option value="">Choose one...</option>
           <option>Complete beginner</option>
           <option>Can run 1-3 km</option>
@@ -107,14 +127,15 @@
         </select>
         <div class="err" id="level-err">Please choose your level.</div>
       </div>
+      <div class="fgroup"><span class="fnum" aria-hidden="true">3</span><h3>When suits you</h3></div>
       <div class="field">
-        <label for="area">Preferred area *</label>
-        <input type="text" id="area" name="area" maxlength="100" placeholder="e.g. East Coast, Bishan" aria-describedby="area-err">
+        <label for="area">Preferred area <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="area" aria-required="true" name="area" maxlength="100" placeholder="e.g. East Coast, Bishan" aria-describedby="area-err">
         <div class="err" id="area-err">Please tell us which area suits you.</div>
       </div>
       <div class="field">
-        <label for="times">Preferred days and times *</label>
-        <input type="text" id="times" name="times" maxlength="200" placeholder="e.g. weekday evenings, Saturday mornings" aria-describedby="times-err">
+        <label for="times">Preferred days and times <span class="req" aria-hidden="true">*</span></label>
+        <input type="text" id="times" aria-required="true" name="times" maxlength="200" placeholder="e.g. weekday evenings, Saturday mornings" aria-describedby="times-err">
         <div class="err" id="times-err">Please tell us when you are free.</div>
       </div>
       <div class="hp" aria-hidden="true">
@@ -123,17 +144,18 @@
       </div>
       <div class="field">
         <div class="check">
-          <input type="checkbox" id="consent" name="consent" aria-describedby="consent-err">
+          <input type="checkbox" id="consent" aria-required="true" name="consent" aria-describedby="consent-err">
           <label for="consent">I agree that the coaches may store my name, phone number and details above, and contact me on WhatsApp about coaching. I can ask for my details to be deleted at any time.</label>
         </div>
         <div class="err" id="consent-err">Please tick the box so we are allowed to contact you.</div>
       </div>
       <button type="submit" class="btn accent block" id="submit">Send my enquiry</button>
+      <p class="lp-fine">No payment needed. A coach replies on WhatsApp.</p>
     </form>
   </section>
 
   <section class="card hidden" id="thanks" aria-live="polite" tabindex="-1">
-    <div class="lp-done" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="lp-done" aria-hidden="true"><svg viewBox="0 0 52 52" width="52" height="52" focusable="false"><circle class="ring" cx="26" cy="26" r="23" fill="none" stroke="currentColor" stroke-width="3"/><path class="tick" d="M15 27l8 8 14-16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <h2>You are in. Thank you!</h2>
     <p>We have your enquiry. A coach will reply to you on WhatsApp <strong id="promise"></strong>.</p>
     <h3>What happens next</h3>
@@ -147,6 +169,10 @@
   </section>
 </main>
 
+
+<div class="lp-sticky" id="stickyBar" aria-hidden="true">
+  <a class="lp-sticky-btn" href="#formCard" id="stickyCta" tabindex="-1"><span>Talk to a coach</span><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
 
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>

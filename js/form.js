@@ -91,4 +91,34 @@
   $("again").addEventListener("click", function () {
     $("thanks").classList.add("hidden"); $("formCard").classList.remove("hidden"); $("name").focus();
   });
+
+  /* Look and feel only: scroll-reveal and the sticky mobile bar. Never touches the form logic. */
+  (function () {
+    if (!("IntersectionObserver" in window)) return;
+    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!calm) {
+      var items = document.querySelectorAll(".rv");
+      document.documentElement.classList.add("js-rv");
+      var rio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      items.forEach(function (el, i) { el.style.transitionDelay = (i % 3) * 80 + "ms"; rio.observe(el); });
+    }
+    var bar = $("stickyBar"), cta = $("stickyCta");
+    var heroOn = true, formOn = false;
+    function sync() {
+      var show = !heroOn && !formOn;
+      bar.classList.toggle("show", show);
+      bar.setAttribute("aria-hidden", show ? "false" : "true");
+      cta.setAttribute("tabindex", show ? "0" : "-1");
+    }
+    var sio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.target.id === "heroCta") heroOn = e.isIntersecting;
+        else formOn = e.isIntersecting;
+      });
+      sync();
+    });
+    sio.observe($("heroCta")); sio.observe($("enquire"));
+  })();
 })();
