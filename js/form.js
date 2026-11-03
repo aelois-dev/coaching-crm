@@ -3,10 +3,8 @@
   var $ = function (id) { return document.getElementById(id); };
   var form = $("enquiry"), btn = $("submit"), errBox = $("formError");
 
-  document.title = (C.businessName || "Run Coaching") + " - running coaching enquiry";
-  $("brandName").textContent = C.businessName || "Run Coaching";
+  if (C.businessName) { document.title = C.businessName + " - running coaching enquiry"; $("brandName").textContent = C.businessName; $("brandName").classList.remove("hidden"); }
   if (C.tagline) $("tagline").textContent = C.tagline;
-  if (C.contact) { $("contactWa").textContent = C.contact.whatsappText || ""; $("contactEm").textContent = C.contact.emailText || ""; }
   if (C.aboutCoaches) { $("aboutText").textContent = C.aboutCoaches; $("aboutSec").classList.remove("hidden"); }
   if (C.reviews && C.reviews.length) {
     C.reviews.forEach(function (r) {
