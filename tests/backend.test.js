@@ -93,7 +93,7 @@ function withCoaches(env) {
   ct.data = [["Name", "Telegram", "Code", "Active"], ["Amy", "@amy", "AMY1", "Yes"], ["Ben", "@ben", "BEN1", "Yes"], ["Old", "@old", "OLD1", "No"]];
   return env;
 }
-const goodLead = (o) => Object.assign({ action: "addLead", name: "Tan Mei", phone: "+65 9123 4567", goal: "10K", level: "Beginner", area: "East", times: "Sat mornings", consent: true, website: "" }, o || {});
+const goodLead = (o) => Object.assign({ action: "addLead", name: "Tan Mei", phone: "+65 9123 4567", age: "34", goal: "10K", level: "Beginner", area: "East", times: "Sat mornings", consent: true, website: "" }, o || {});
 
 // ---------- tiny runner ----------
 let pass = 0, fail = 0; const failures = [];
@@ -191,10 +191,14 @@ test("setup() makes tabs, headers, trigger and a sample coach; running twice is 
   assert.strictEqual(env.triggers.length, 1); assert.strictEqual(env.triggers[0].minutes, 15);
   assert.ok(env.sheets["Leads"].formats.includes("@"));
 });
-test("a form lead with level, area and times left blank is accepted", () => {
+test("a form lead needs age, level, area and times; email stays optional", () => {
   const env = freshEnv(); env.ctx.setup();
-  const r = env.call(Object.assign(goodLead(), { level: "", area: "", times: "" }), true);
-  assert.ok(r.ok, JSON.stringify(r));
+  ["age", "level", "area", "times"].forEach(k => {
+    const r = env.call(Object.assign(goodLead(), { [k]: "" }), true);
+    assert.strictEqual(r.error, "invalid", k);
+  });
+  const ok = env.call(Object.assign(goodLead(), { email: "" }), true);
+  assert.ok(ok.ok, JSON.stringify(ok));
 });
 test("missing header columns are added to an existing tab; extra and reordered columns are fine", () => {
   const env = freshEnv();

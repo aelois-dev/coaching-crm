@@ -110,7 +110,7 @@
     if (action === "addLead") {
       if (str(b.website)) return { ok: false, error: "spam" };
       if (b.consent !== true) return { ok: false, error: "consent_required" };
-      if (!validLead(b)) return { ok: false, error: "invalid" };
+      if (!validLead(b) || !str(b.age) || !str(b.level) || !str(b.area) || !str(b.times)) return { ok: false, error: "invalid" };
       var now = Date.now();
       s.rate = (s.rate || []).filter(function (t) { return now - t < 10 * MIN; });
       if (s.rate.length >= 5) return { ok: false, error: "rate_limited" };

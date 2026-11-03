@@ -35,23 +35,24 @@
   function validate() {
     var v = {
       name: $("name").value.trim(), phone: $("phone").value.trim(), email: $("email").value.trim(),
-      age: $("age").value.trim(), goal: $("goal").value
+      age: $("age").value.trim(), goal: $("goal").value, level: $("level").value,
+      area: $("area").value.trim(), times: $("times").value.trim()
     };
     var bad = {
       name: !v.name,
       phone: v.phone.replace(/\D/g, "").length < 8 || v.phone.replace(/\D/g, "").length > 15,
       email: !!v.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email),
-      age: !!v.age && !(+v.age >= 5 && +v.age <= 100),
-      goal: !v.goal,
+      age: !(+v.age >= 5 && +v.age <= 100),
+      goal: !v.goal, level: !v.level, area: !v.area, times: !v.times,
       consent: !$("consent").checked
     };
     var first = null;
-    ["name", "phone", "email", "age", "goal", "consent"].forEach(function (k) {
+    ["name", "phone", "email", "age", "goal", "level", "area", "times", "consent"].forEach(function (k) {
       setInvalid(k, bad[k]); if (bad[k] && !first) first = k;
     });
     return first;
   }
-  ["name", "phone", "email", "age", "goal", "consent"].forEach(function (k) {
+  ["name", "phone", "email", "age", "goal", "level", "area", "times", "consent"].forEach(function (k) {
     $(k).addEventListener("input", function () { if ($(k).closest(".field").classList.contains("invalid")) validate(); });
     $(k).addEventListener("change", function () { if ($(k).closest(".field").classList.contains("invalid")) validate(); });
   });
