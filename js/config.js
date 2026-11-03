@@ -15,7 +15,7 @@ window.CONFIG = {
   replyPromise: "within 2 hours",
 
   // Short line under the business name on the home page.
-  tagline: "Friendly running coaching in Singapore.",
+  tagline: "Friendly 1-to-1 and group running coaching in Singapore.",
 
   // OPTIONAL. Remove the // at the start of a line to show these on the page.
   // Leave them out and the page simply shows nothing for them.
