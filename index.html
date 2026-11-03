@@ -6,26 +6,61 @@
 <title>Run Coaching - running coaching enquiry</title>
 <meta name="description" content="Tell us your running goal and a coach will WhatsApp you.">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/landing.css">
+<meta name="theme-color" content="#0b1f17">
 </head>
-<body>
+<body class="landing">
 <div id="demoBanner" class="demo-banner hidden">Demo mode: enquiries stay in this browser only.</div>
-<header class="hero">
-  <div class="wrap">
-    <div class="brand" id="brandName">Run Coaching</div>
+<header class="lp-hero">
+  <div class="lp-wrap">
+    <div class="lp-brand" id="brandName">Run Coaching</div>
     <h1>Run your first (or fastest) 5K with a coach beside you</h1>
-    <p id="tagline">Friendly running coaching in Singapore.</p>
-    <ul>
-      <li>Plans that fit your level, your schedule and your goal</li>
-      <li>A real coach replies to you on WhatsApp</li>
+    <p class="lp-pitch" id="tagline">Friendly running coaching in Singapore.</p>
+    <ul class="lp-ticks">
+      <li>Plans that fit your level, schedule and goal</li>
+      <li>A real coach replies on WhatsApp</li>
       <li>No commitment: the first chat is free</li>
     </ul>
+    <a class="lp-cta" href="#formCard" id="heroCta">Book a free chat
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <p class="lp-note">Takes about a minute. No payment needed.</p>
   </div>
 </header>
 
-<main class="wrap">
+<section class="lp-section" aria-labelledby="howTitle">
+  <div class="lp-wrap">
+    <h2 id="howTitle">How it works</h2>
+    <ol class="lp-steps">
+      <li><span class="lp-num" aria-hidden="true">1</span><div><h3>Send your enquiry</h3><p>Tell us your goal and WhatsApp number. It takes about a minute.</p></div></li>
+      <li><span class="lp-num" aria-hidden="true">2</span><div><h3>A coach WhatsApps you</h3><p>A real person messages you to chat about your goal and find a time.</p></div></li>
+      <li><span class="lp-num" aria-hidden="true">3</span><div><h3>Start your first session</h3><p>Meet your coach, lace up and get moving.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="lp-section lp-alt" aria-labelledby="firstTitle">
+  <div class="lp-wrap">
+    <h2 id="firstTitle">What your first session includes</h2>
+    <ul class="lp-first">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>A friendly hello and a chat about your goal</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>An easy run so your coach can see where you are now</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Simple tips on how to run comfortably</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Your questions answered, with no pressure to sign up</li>
+    </ul>
+  </div>
+</section>
+
+<section class="lp-section hidden" id="aboutSec" aria-labelledby="aboutTitle">
+  <div class="lp-wrap"><h2 id="aboutTitle">About your coaches</h2><p id="aboutText"></p></div>
+</section>
+<section class="lp-section lp-alt hidden" id="reviewsSec" aria-labelledby="revTitle">
+  <div class="lp-wrap"><h2 id="revTitle">What runners say</h2><div id="reviewsList" class="lp-reviews"></div></div>
+</section>
+
+<main class="lp-wrap lp-main" id="enquire">
   <section class="card" id="formCard" aria-labelledby="formTitle">
-    <h2 id="formTitle">Tell us about you</h2>
-    <p class="muted small">Fields marked * are needed. It takes about a minute.</p>
+    <h2 id="formTitle">Book your free chat</h2>
+    <p class="muted">Tell us a little about you. Fields marked * are needed.</p>
     <div id="formError" class="msg error hidden" role="alert" tabindex="-1"></div>
     <form id="enquiry" novalidate>
       <div class="field">
@@ -94,14 +129,21 @@
   </section>
 
   <section class="card hidden" id="thanks" aria-live="polite" tabindex="-1">
-    <h2>Thank you!</h2>
+    <div class="lp-done" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36" focusable="false"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2>You are in. Thank you!</h2>
     <p>We have your enquiry. A coach will reply to you on WhatsApp <strong id="promise"></strong>.</p>
+    <h3>What happens next</h3>
+    <ol class="lp-next">
+      <li>A coach messages you on WhatsApp to say hello.</li>
+      <li>You chat about your goal and pick a time that suits you.</li>
+      <li>You meet your coach for your first session.</li>
+    </ol>
     <p class="muted small">Not seeing a message? Check the number you gave us, or contact us below.</p>
     <button type="button" class="btn secondary" id="again">Send another enquiry</button>
   </section>
 </main>
 
-<footer class="footer wrap">
+<footer class="footer lp-wrap">
   <div id="contactWa"></div>
   <div id="contactEm"></div>
 </footer>

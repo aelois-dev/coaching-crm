@@ -7,6 +7,16 @@
   $("brandName").textContent = C.businessName || "Run Coaching";
   if (C.tagline) $("tagline").textContent = C.tagline;
   if (C.contact) { $("contactWa").textContent = C.contact.whatsappText || ""; $("contactEm").textContent = C.contact.emailText || ""; }
+  if (C.aboutCoaches) { $("aboutText").textContent = C.aboutCoaches; $("aboutSec").classList.remove("hidden"); }
+  if (C.reviews && C.reviews.length) {
+    C.reviews.forEach(function (r) {
+      if (!r || !r.text) return;
+      var q = document.createElement("blockquote"); q.textContent = r.text;
+      if (r.name) { var c = document.createElement("cite"); c.textContent = r.name; q.appendChild(c); }
+      $("reviewsList").appendChild(q);
+    });
+    if ($("reviewsList").children.length) $("reviewsSec").classList.remove("hidden");
+  }
   if (API.demo) $("demoBanner").classList.remove("hidden");
 
   var src = (new URLSearchParams(location.search).get("src") || "").toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 30);
@@ -70,6 +80,7 @@
       if (r && r.ok) {
         $("promise").textContent = C.replyPromise || "soon";
         $("formCard").classList.add("hidden"); $("thanks").classList.remove("hidden"); $("thanks").focus();
+        $("thanks").scrollIntoView({ block: "start" });
         form.reset();
       } else {
         showError(MESSAGES[r && r.error] || "Something went wrong. Please try again.");

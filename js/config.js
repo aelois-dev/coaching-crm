@@ -21,5 +21,10 @@ window.CONFIG = {
   contact: {
     whatsappText: "WhatsApp us: +65 9000 0000",
     emailText: "Email: hello@example.com"
-  }
+  },
+
+  // OPTIONAL. Remove the // at the start of a line to show these on the page.
+  // Leave them out and the page simply shows nothing for them.
+  // aboutCoaches: "A few sentences about your coaches.",
+  // reviews: [ { text: "What a runner said, in their words.", name: "First name" } ]
 };
