@@ -15,16 +15,21 @@
     });
     if ($("reviewsList").children.length) $("reviewsSec").classList.remove("hidden");
   }
+  if (C.coachPhoto) {
+    var ph = $("coachPhoto");
+    ph.addEventListener("error", function () { $("coachPhotoFig").classList.add("hidden"); });
+    ph.src = C.coachPhoto; $("coachPhotoFig").classList.remove("hidden");
+  }
   if (API.demo) $("demoBanner").classList.remove("hidden");
 
   var src = (new URLSearchParams(location.search).get("src") || "").toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 30);
 
   var MESSAGES = {
-    invalid: "Some details look wrong. Please check the form and try again.",
-    consent_required: "Please tick the box so we are allowed to contact you.",
-    rate_limited: "Too many enquiries from this device. Please wait a few minutes and try again.",
-    spam: "Sorry, we could not accept this enquiry.",
-    network: "We could not reach the server. Check your internet connection and try again."
+    invalid: "Something in the form does not look right. Please check it and try again.",
+    consent_required: "Please tick the box so we are allowed to message you.",
+    rate_limited: "That is a lot of enquiries from this phone. Please wait a few minutes and try again.",
+    spam: "Sorry, we could not take this one.",
+    network: "We could not send it. Please check your internet connection and try again."
   };
 
   function setInvalid(id, bad) {
@@ -65,7 +70,7 @@
     e.preventDefault();
     errBox.classList.add("hidden");
     var first = validate();
-    if (first) { showError("Please fix the highlighted fields below."); $(first).focus(); return; }
+    if (first) { showError("A few answers need another look. They are marked below."); $(first).focus(); return; }
     var body = {
       name: $("name").value.trim(), phone: $("phone").value.trim(), email: $("email").value.trim(),
       age: $("age").value.trim(), goal: $("goal").value, level: $("level").value,
@@ -82,43 +87,13 @@
         $("thanks").scrollIntoView({ block: "start" });
         form.reset();
       } else {
-        showError(MESSAGES[r && r.error] || "Something went wrong. Please try again.");
+        showError(MESSAGES[r && r.error] || "Something went wrong on our side. Please try again in a moment.");
       }
     }).catch(function () { showError(MESSAGES.network); })
-      .then(function () { btn.disabled = false; btn.removeAttribute("aria-busy"); btn.textContent = label === "Sending..." ? "Send my enquiry" : label; });
+      .then(function () { btn.disabled = false; btn.removeAttribute("aria-busy"); btn.textContent = label === "Sending..." ? "Send to a coach" : label; });
   });
 
   $("again").addEventListener("click", function () {
     $("thanks").classList.add("hidden"); $("formCard").classList.remove("hidden"); $("name").focus();
   });
-
-  /* Look and feel only: scroll-reveal and the sticky mobile bar. Never touches the form logic. */
-  (function () {
-    if (!("IntersectionObserver" in window)) return;
-    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!calm) {
-      var items = document.querySelectorAll(".rv");
-      document.documentElement.classList.add("js-rv");
-      var rio = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); } });
-      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-      items.forEach(function (el, i) { el.style.transitionDelay = (i % 3) * 80 + "ms"; rio.observe(el); });
-    }
-    var bar = $("stickyBar"), cta = $("stickyCta");
-    var heroOn = true, formOn = false;
-    function sync() {
-      var show = !heroOn && !formOn;
-      bar.classList.toggle("show", show);
-      bar.setAttribute("aria-hidden", show ? "false" : "true");
-      cta.setAttribute("tabindex", show ? "0" : "-1");
-    }
-    var sio = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.target.id === "heroCta") heroOn = e.isIntersecting;
-        else formOn = e.isIntersecting;
-      });
-      sync();
-    });
-    sio.observe($("heroCta")); sio.observe($("enquire"));
-  })();
 })();

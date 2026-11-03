@@ -19,6 +19,8 @@ window.CONFIG = {
 
   // OPTIONAL. Remove the // at the start of a line to show these on the page.
   // Leave them out and the page simply shows nothing for them.
+  // A photo of the coaches (path to a file, e.g. "images/coaches.jpg"). Shows nothing while empty.
+  // coachPhoto: "images/coaches.jpg",
   // aboutCoaches: "A few sentences about your coaches.",
   // reviews: [ { text: "What a runner said, in their words.", name: "First name" } ]
 };
