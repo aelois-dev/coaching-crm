@@ -120,7 +120,7 @@ test("validateLead_ accepts a good form and cleans it", () => {
 test("validateLead_ rejects bad input", () => {
   const bad = (o) => assert.deepStrictEqual(JSON.parse(JSON.stringify(P.validateLead_(goodLead(o)))), { ok: false, error: "invalid" });
   bad({ name: "" }); bad({ phone: "123" }); bad({ phone: "abc" }); bad({ goal: "Ultra" }); bad({ email: "nope" });
-  bad({ age: "abc" }); bad({ age: "0" }); bad({ level: "" }); bad({ area: "" }); bad({ times: "" });
+  bad({ age: "abc" }); bad({ age: "0" });
 });
 test("validateLead_ needs consent (public only)", () => {
   assert.strictEqual(P.validateLead_(goodLead({ consent: false })).error, "consent_required");
@@ -190,6 +190,11 @@ test("setup() makes tabs, headers, trigger and a sample coach; running twice is 
   assert.ok(env.sheets["Coaches"].data.slice(1).every(r => r[2] && r[2].length === 10));
   assert.strictEqual(env.triggers.length, 1); assert.strictEqual(env.triggers[0].minutes, 15);
   assert.ok(env.sheets["Leads"].formats.includes("@"));
+});
+test("a form lead with level, area and times left blank is accepted", () => {
+  const env = freshEnv(); env.ctx.setup();
+  const r = env.call(Object.assign(goodLead(), { level: "", area: "", times: "" }), true);
+  assert.ok(r.ok, JSON.stringify(r));
 });
 test("missing header columns are added to an existing tab; extra and reordered columns are fine", () => {
   const env = freshEnv();

@@ -76,7 +76,6 @@ function validateLead_(d, opts) {
     if (GOALS.indexOf(goal) < 0) return { ok: false, error: "invalid" };
   } else {
     if (GOALS.indexOf(goal) < 0) return { ok: false, error: "invalid" };
-    if (!level || !area || !times) return { ok: false, error: "invalid" };
     if (!(d.consent === true || d.consent === "true")) return { ok: false, error: "consent_required" };
   }
   return { ok: true, lead: { name: name, phone: phone, email: email, age: age, goal: goal, level: level, area: area, times: times } };
