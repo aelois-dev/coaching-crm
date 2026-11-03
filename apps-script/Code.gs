@@ -490,15 +490,18 @@ function checkReminders() {
   return plan;
 }
 
-/** Run once from the editor: makes the tabs, the 15-minute trigger and a sample coach. Safe to run again. */
+/** Run once from the editor: makes the tabs, the 15-minute trigger and the first three coaches (Gabriel, Leroi, Carey). Safe to run again. */
 function setup() {
   var lt = table_("Leads", LEADS_HEADER, true); formatText_(lt.sh, lt.headers.length);
   var at = table_("Activity", ACTIVITY_HEADER, true); formatText_(at.sh, at.headers.length);
   var ct = coachesTable_();
   if (ct.values.length < 2) {
-    var code = Utilities.getUuid().replace(/-/g, "").slice(0, 10);
-    ct.sh.appendRow(COACHES_HEADER.map(function (h) { return { "Name": "Sample Coach", "Telegram": "@yourtelegram", "Code": code, "Active": "Yes" }[h]; }));
-    Logger.log("Sample coach added. Its access code is: " + code + "  (change the name, Telegram handle and code on the Coaches tab)");
+    ["Gabriel", "Leroi", "Carey"].forEach(function (name) {
+      var code = Utilities.getUuid().replace(/-/g, "").slice(0, 10);
+      ct.sh.appendRow(COACHES_HEADER.map(function (h) { return { "Name": name, "Telegram": "", "Code": code, "Active": "Yes" }[h]; }));
+      Logger.log("Coach " + name + " added. Access code: " + code);
+    });
+    Logger.log("Give each coach their own code (also on the Coaches tab). Add the Telegram handle there if you like.");
   }
   var has = ScriptApp.getProjectTriggers().some(function (t) { return t.getHandlerFunction() === "checkReminders"; });
   if (!has) { ScriptApp.newTrigger("checkReminders").timeBased().everyMinutes(15).create(); Logger.log("Installed the 15-minute reminder trigger."); }

@@ -1,7 +1,7 @@
 /* API layer. Global `API`.
    API.get(action, params) / API.post(action, body) -> Promise of parsed JSON {ok:true,...} | {ok:false,error}
    When CONFIG.apiUrl is empty, everything runs in DEMO MODE in localStorage (API.demo === true).
-   Demo coach codes: demo1 (Coach Alex), demo2 (Coach Sam). */
+   Demo coach codes: demo1 (Gabriel), demo2 (Leroi). */
 (function () {
   var CFG = window.CONFIG || {};
   var URL_ = (CFG.apiUrl || "").trim();
@@ -27,7 +27,7 @@
 
   /* ---------- demo mode ---------- */
   var KEY = "crm_demo_v1";
-  var COACHES = { demo1: "Coach Alex", demo2: "Coach Sam" };
+  var COACHES = { demo1: "Gabriel", demo2: "Leroi" };
   var STATUSES = ["New", "Contacted", "Trial booked", "Paying", "Not proceeding"];
   var GOALS = ["5K", "10K", "Half marathon", "Marathon", "General fitness", "Other"];
   var MIN = 60000;
@@ -50,15 +50,15 @@
     var s = { seq: 8, activity: {}, rate: [], leads: [
       L("L1", 40 * MIN, "Priya Nair", "+65 9123 4501", "priya@example.com", "29", "5K", "Complete beginner", "East Coast", "Weekday evenings", "form", "New", "", 0, 0, ""),
       L("L2", 3 * H, "Daniel Tan", "+65 9234 5602", "", "41", "Half marathon", "Can run 5 km", "Bishan", "Weekend mornings", "form", "New", "", 0, 0, ""),
-      L("L3", 5 * H, "Mei Ling Chua", "+65 9345 6703", "mei@example.com", "35", "10K", "Can run 1-3 km", "Tampines", "Tue/Thu 7pm", "form", "New", "Coach Alex", 3 * H, 0, ""),
-      L("L4", 2 * D, "Raj Kumar", "+65 9456 7804", "", "52", "General fitness", "Complete beginner", "Jurong", "Saturday mornings", "manual", "Contacted", "Coach Alex", 2 * D, 20 * H, day(n - D)),
-      L("L5", 4 * D, "Sarah Lim", "+65 9567 8905", "sarah@example.com", "24", "Marathon", "Can run 10 km+", "Marina Bay", "Weekday mornings", "form", "Trial booked", "Coach Sam", 4 * D, 2 * D, day(n + 2 * D)),
-      L("L6", 9 * D, "Kevin Ong", "+65 9678 9006", "", "33", "10K", "Can run 5 km", "Punggol", "Sunday mornings", "form", "Paying", "Coach Sam", 9 * D, 3 * D, ""),
-      L("L7", 12 * D, "Aisha Rahman", "+65 9789 0107", "aisha@example.com", "27", "5K", "Complete beginner", "Woodlands", "Weekday evenings", "form", "Not proceeding", "Coach Alex", 12 * D, 10 * D, "")
+      L("L3", 5 * H, "Mei Ling Chua", "+65 9345 6703", "mei@example.com", "35", "10K", "Can run 1-3 km", "Tampines", "Tue/Thu 7pm", "form", "New", "Gabriel", 3 * H, 0, ""),
+      L("L4", 2 * D, "Raj Kumar", "+65 9456 7804", "", "52", "General fitness", "Complete beginner", "Jurong", "Saturday mornings", "manual", "Contacted", "Gabriel", 2 * D, 20 * H, day(n - D)),
+      L("L5", 4 * D, "Sarah Lim", "+65 9567 8905", "sarah@example.com", "24", "Marathon", "Can run 10 km+", "Marina Bay", "Weekday mornings", "form", "Trial booked", "Leroi", 4 * D, 2 * D, day(n + 2 * D)),
+      L("L6", 9 * D, "Kevin Ong", "+65 9678 9006", "", "33", "10K", "Can run 5 km", "Punggol", "Sunday mornings", "form", "Paying", "Leroi", 9 * D, 3 * D, ""),
+      L("L7", 12 * D, "Aisha Rahman", "+65 9789 0107", "aisha@example.com", "27", "5K", "Complete beginner", "Woodlands", "Weekday evenings", "form", "Not proceeding", "Gabriel", 12 * D, 10 * D, "")
     ] };
-    s.activity.L3 = [{ time: iso(n - 3 * H), coach: "Coach Alex", action: "claim", text: "Claimed" }];
-    s.activity.L4 = [{ time: iso(n - 2 * D), coach: "Coach Alex", action: "claim", text: "Claimed" },
-      { time: iso(n - 20 * H), coach: "Coach Alex", action: "note", text: "Spoke on WhatsApp, wants to start slowly." }];
+    s.activity.L3 = [{ time: iso(n - 3 * H), coach: "Gabriel", action: "claim", text: "Claimed" }];
+    s.activity.L4 = [{ time: iso(n - 2 * D), coach: "Gabriel", action: "claim", text: "Claimed" },
+      { time: iso(n - 20 * H), coach: "Gabriel", action: "note", text: "Spoke on WhatsApp, wants to start slowly." }];
     return s;
   }
 

@@ -17,12 +17,12 @@ You will need: a Google account, and the Telegram app on your phone.
 6. At the top, in the function dropdown (it may say "doGet" or similar), choose **setup**, then click **Run**.
 7. Google asks for permission. Click **Review permissions**, choose your account. You may see "Google hasn't verified this app": click **Advanced**, then **Go to Coaching CRM (unsafe)** (it is your own script), then **Allow**.
 8. Wait for "Execution completed" at the bottom. Click **Execution log** if it is hidden.
-   **Check:** the log says the sample coach was added and shows an **access code**. Write that code down. Go back to the Sheet: you should now see tabs **Leads**, **Activity** and **Coaches**.
+   **Check:** the log lists three coaches (Gabriel, Leroi, Carey), each with an **access code**. Write each code down and give each coach only their own. Go back to the Sheet: you should now see tabs **Leads**, **Activity** and **Coaches**.
 9. Run **authorizeAll** the same way (choose it in the dropdown, click Run). This asks for the last permission (sending messages to Telegram). Allow it. **Check:** the log says "Permissions OK".
 
 ## Part C. Your coaches
 
-10. In the Sheet, open the **Coaches** tab. Row 2 is a sample. Change it, and add one row per coach:
+10. In the Sheet, open the **Coaches** tab. Gabriel, Leroi and Carey are already there. To add a coach, add a row:
     - **Name**: the coach's first name. Each name must be different. Keep it exactly the same afterwards, because leads are tied to this name.
     - **Telegram**: their Telegram username with an @, for example `@amy_runs`. This is used to tag them in reminders.
     - **Code**: a personal access code for the CRM page. Make it long and hard to guess (for example 3 random words). Never share one coach's code with another.

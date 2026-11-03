@@ -185,8 +185,9 @@ test("setup() makes tabs, headers, trigger and a sample coach; running twice is 
   const env = freshEnv(); env.ctx.setup(); env.ctx.setup();
   assert.deepStrictEqual(env.sheets["Leads"].data[0], env.ctx.LEADS_HEADER);
   assert.deepStrictEqual(env.sheets["Activity"].data[0], env.ctx.ACTIVITY_HEADER);
-  assert.strictEqual(env.sheets["Coaches"].data.length, 2);
-  assert.strictEqual(env.sheets["Coaches"].data[1][2], "abcdef1234");
+  assert.strictEqual(env.sheets["Coaches"].data.length, 4);
+  assert.deepStrictEqual(env.sheets["Coaches"].data.slice(1).map(r => r[0]), ["Gabriel", "Leroi", "Carey"]);
+  assert.ok(env.sheets["Coaches"].data.slice(1).every(r => r[2] && r[2].length === 10));
   assert.strictEqual(env.triggers.length, 1); assert.strictEqual(env.triggers[0].minutes, 15);
   assert.ok(env.sheets["Leads"].formats.includes("@"));
 });
