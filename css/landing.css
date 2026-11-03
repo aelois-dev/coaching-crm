@@ -126,6 +126,7 @@
 .lp-next li { counter-increment: n; display: flex; gap: 12px; align-items: flex-start; color: var(--body); }
 .lp-next li::before { content: counter(n); flex: none; width: 26px; height: 26px; border-radius: 8px; background: var(--tint); border: 1px solid var(--line2); color: var(--g700); font-weight: 800; font-size: .85rem; display: grid; place-items: center; }
 #thanks:focus { outline: none; }
+.landing .card { scroll-margin-top: 24px; }
 
 /* Sticky mobile bar */
 .lp-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
