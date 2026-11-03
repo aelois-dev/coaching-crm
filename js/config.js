@@ -6,7 +6,7 @@ window.CONFIG = {
   // Paste the Google Apps Script web app address here when it is ready.
   // Leave it EMPTY ("") to try the site in DEMO MODE (nothing is sent anywhere;
   // everything stays in this browser).
-  apiUrl: "",
+  apiUrl: "https://script.google.com/macros/s/AKfycbya0jn0T_vUA37mEXuE9yyxKIhFM-wx3HKEysg3yzS4UTxLPEAV4F6qLpdsAsRKixVCxQ/exec",
 
   // Shown at the top of the page and in the browser tab.
   businessName: "Run Coaching",
